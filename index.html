@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="/JS/index.js"></script>
+    <title>Covid-19</title>
+    
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h2>{{title}}</h2>
+            <p>This is my first angular project.</p>
+
+
+            <!-- all_data -->
+            <h5>Globle Covid-19 Report</h5>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card bg-warning text-white mt-3">
+                        <div class="card-body">
+                            <h5>Confirmed Cases</h5>
+                            <h4>{{all_data.confirmed.value}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-success text-white mt-3">
+                        <div class="card-body">
+                            <h5>Recovered Cases</h5>
+                            <h4>{{all_data.recovered.value}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-danger text-white mt-3">
+                        <div class="card-body">
+                            <h5>Confirmed Cases</h5>
+                            <h4>{{all_data.deaths.value}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End all_data -->
+
+            <input 
+                type="text" 
+                class="form-controln mt-4 w-50 pl-3" 
+                placeholder="Enter Country Name"
+                ng-model="country"
+                ng-change="get_country_data()"
+            />
+            <h4 class="text-center mt-3">{{country}}</h4>
+            <div class="row mt-4" ng-if="country_data">
+                <div class="col-md-4">
+                    <div class="card bg-warning text-white mt-3">
+                        <div class="card-body">
+                            <h5>Confirmed Cases</h5>
+                            <h4>{{country_data.confirmed.value}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-success text-white mt-3">
+                        <div class="card-body">
+                            <h5>Recovered Cases</h5>
+                            <h4>{{country_data.recovered.value}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-danger text-white mt-3">
+                        <div class="card-body">
+                            <h5>Confirmed Cases</h5>
+                            <h4>{{country_data.deaths.value}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</body>
+
+</html>
